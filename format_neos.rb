@@ -1,4 +1,4 @@
-require './lib/near_earth_objects'
+require_relative './near_earth_objects'
 
 class FormatNeos
     attr_reader :date
@@ -8,7 +8,8 @@ class FormatNeos
   end
 
   def asteroid_details
-    NearEarthObjects.new(date).find_neos_by_date(date)
+    neos = NearEarthObjects.new(date)
+    neos.find_neos_by_date
   end
 
   def asteroid_list
